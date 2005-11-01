@@ -1,0 +1,75 @@
+# Project: php_editor
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = Debug/php_editor_private.res
+OBJ  = Debug/CodeManager.o Debug/CodeSelect.o Debug/FileList.o Debug/FnList.o Debug/main.o Debug/MainMenu.o Debug/MainWindow.o Debug/MiscFns.o Debug/OutputBox.o Debug/ParamBox.o Debug/TextEditor.o Debug/Timer.o Debug/Archive.o Debug/Class.o Debug/ClassItem.o $(RES)
+LINKOBJ  = Debug/CodeManager.o Debug/CodeSelect.o Debug/FileList.o Debug/FnList.o Debug/main.o Debug/MainMenu.o Debug/MainWindow.o Debug/MiscFns.o Debug/OutputBox.o Debug/ParamBox.o Debug/TextEditor.o Debug/Timer.o Debug/Archive.o Debug/Class.o Debug/ClassItem.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lfltk -lole32 -luuid -lcomctl32 -lwsock32 -lm  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = Debug/editor.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS) -DWIN32 -mms-bitfields  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Debug/editor.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Debug\editor.exe" $(LIBS)
+
+Debug/CodeManager.o: CodeManager.cpp
+	$(CPP) -c CodeManager.cpp -o Debug/CodeManager.o $(CXXFLAGS)
+
+Debug/CodeSelect.o: CodeSelect.cpp
+	$(CPP) -c CodeSelect.cpp -o Debug/CodeSelect.o $(CXXFLAGS)
+
+Debug/FileList.o: FileList.cpp
+	$(CPP) -c FileList.cpp -o Debug/FileList.o $(CXXFLAGS)
+
+Debug/FnList.o: FnList.cpp
+	$(CPP) -c FnList.cpp -o Debug/FnList.o $(CXXFLAGS)
+
+Debug/main.o: main.cpp
+	$(CPP) -c main.cpp -o Debug/main.o $(CXXFLAGS)
+
+Debug/MainMenu.o: MainMenu.cpp
+	$(CPP) -c MainMenu.cpp -o Debug/MainMenu.o $(CXXFLAGS)
+
+Debug/MainWindow.o: MainWindow.cpp
+	$(CPP) -c MainWindow.cpp -o Debug/MainWindow.o $(CXXFLAGS)
+
+Debug/MiscFns.o: MiscFns.cpp
+	$(CPP) -c MiscFns.cpp -o Debug/MiscFns.o $(CXXFLAGS)
+
+Debug/OutputBox.o: OutputBox.cpp
+	$(CPP) -c OutputBox.cpp -o Debug/OutputBox.o $(CXXFLAGS)
+
+Debug/ParamBox.o: ParamBox.cpp
+	$(CPP) -c ParamBox.cpp -o Debug/ParamBox.o $(CXXFLAGS)
+
+Debug/TextEditor.o: TextEditor.cpp
+	$(CPP) -c TextEditor.cpp -o Debug/TextEditor.o $(CXXFLAGS)
+
+Debug/Timer.o: Timer.cpp
+	$(CPP) -c Timer.cpp -o Debug/Timer.o $(CXXFLAGS)
+
+Debug/Archive.o: Archive.cpp
+	$(CPP) -c Archive.cpp -o Debug/Archive.o $(CXXFLAGS)
+
+Debug/Class.o: Class.cpp
+	$(CPP) -c Class.cpp -o Debug/Class.o $(CXXFLAGS)
+
+Debug/ClassItem.o: ClassItem.cpp
+	$(CPP) -c ClassItem.cpp -o Debug/ClassItem.o $(CXXFLAGS)
+
+Debug/php_editor_private.res: php_editor_private.rc 
+	$(WINDRES) -i php_editor_private.rc --input-format=rc -o Debug/php_editor_private.res -O coff 

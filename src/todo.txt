@@ -1,0 +1,51 @@
+---------------------------------------------------------------
+todo:
+---------------------------------------------------------------
+- html tag completion, attributes, style
+- find & replace (scope selection: in comments, vars, ids, all) regexp
+- js, css highlight
+- class name (after new, extends), define, keyword completion
+- parse all files in dir & subdirs for clss,fns. find by cls name
+- include completion with files from dir, path (file open dialog)
+- save/open project, save file as 
+- highlight area detection, don't highlight all
+- parsing optimization, less object copying, less memory allocation
+- current parameter highlight when moving cursor
+- ctrl-A select all
+- when showing browser, editor should have focus and browser just shown above
+- file outside modification monitoring, removal
+- when writing function for current class, offer base class fns
+- show current file's full path
+- highlight current fn in fn box
+- insert closing bracket on array const key selection
+- mysql_connect,mail raada password 3x fn paramos
+- fn param logs pa virsu rakstaamajam tekstam, jau augsheejaa daljaa raxta
+- uzskaitam globaalos, kas un piedaavaajam GLOBALS massiivaa. 
+- uzskaitam lokaalos mainiigos un piedaavaajam tikai tos f-jaa
+- ja f-jaa izmanto globaalo mainiigo, tad pieliekam vinju pie 'global ...'
+- show files in include hierarchy
+- opening nonexistent file
+- a) windozaa taisot ALT+Tab, nepardaas ikona visu ikonu sarkastaa.
+- b) tur tajaa ikona ir atteelots teksta liinijas, kuras veido burtu 'E'. varbuut to 'E' var labaak izcelt, atstaajot baltu liiniju starp kreiso malu un pashu burtu.
+- $obj->each-> , each highlighted as keyword
+
+- sintakses komentars prieksh function,switch,if.. else..,while, list,each,
+utt liidziigi kaa tas ir prieksh foreach(...)
+- shortcut: Ctrl+PgUp ... staigaat pa failiem
+- shortcut: Alt+PgUp ... staigaat pa funkcijaam
+- shortcut: Ctrl+H  vai F1: shortcut saraksts (as parambox)
+
+---------------------------------------------------------------
+bugs:
+---------------------------------------------------------------
+- include'd class overrides the same file defs if it is open and doesn't show cls
+- autocomplete starts when editing after a var (token) and spaces ($var  ..)
+- shows empty browser, after filtered to none (const)
+- funkciju drop down pie klaseem neparadaas, ja funkcijas nosaukumu ievada  
+nepareizi. Lai drop_down atkal pataadiitos, jaanodzees uzrakstiitas liidz  
+'->' un jasaak no jauna...
+- shows constants on new file
+- shows constructors as global functions in fn browser
+- param box overlays browser near window borders
+- '$this->prop[' offers other class members
+- 

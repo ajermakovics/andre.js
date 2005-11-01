@@ -1,0 +1,22 @@
+/* XPM */ static char *SaveAll_xpm[] = {
+"16 16 3 1",
+"  c black",
+". c #808000",
+"X c None",
+"XXXX           X",
+"XXXX . XXXXX X X",
+"XX             X",
+"XX . XXXXX X . X",
+"             . X",
+" . XXXXX X . . X",
+" . XXXXX   . . X",
+" . XXXXX . . . X",
+" . XXXXX . . . X",
+" ..     .. . . X",
+" ......... .   X",
+" ..      . . XXX",
+" ..    X .   XXX",
+" ..    X . XXXXX",
+"X          XXXXX",
+"XXXXXXXXXXXXXXXX"
+};

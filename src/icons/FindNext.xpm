@@ -1,0 +1,23 @@
+/* XPM */ static char *FindNext_xpm[] = {
+"16 16 4 1",
+"  c black",
+". c navy",
+"X c #808080",
+"o c None",
+"oooooooooooooooo",
+"oo  o  ooooooooo",
+"oo  o  ooooooooo",
+"o X   X oooooooo",
+"         ooooooo",
+" o  o o  ooooooo",
+" X  o X  ooooooo",
+"   ooo   ooooooo",
+"   ooo   ooooooo",
+"oooooooooooooooo",
+"oooooooooooo.ooo",
+"oooooooooooo..oo",
+"ooo.o.o.o......o",
+"oooooooooooo..oo",
+"oooooooooooo.ooo",
+"oooooooooooooooo"
+};

@@ -1,0 +1,23 @@
+/* XPM */ static char *Print_xpm[] = {
+"16 15 5 1",
+"  c black",
+". c #808000",
+"X c yellow",
+"o c None",
+"O c gray100",
+"oooooooooooooooo",
+"ooooo         oo",
+"oooo OOOOOOOO oo",
+"oooo O     O ooo",
+"ooo OOOOOOOO ooo",
+"ooo O     O    o",
+"oo OOOOOOOO o o ",
+"o          o o  ",
+" oooooooooo o o ",
+"             oo ",
+" oooooo...oo o o",
+" ooooooXXXoo   o",
+"             o o",
+"o ooooooooo o oo",
+"oo           ooo"
+};

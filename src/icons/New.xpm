@@ -1,0 +1,21 @@
+/* XPM */ static char *New_xpm[] = {
+"16 15 3 1",
+"  c black",
+". c None",
+"X c gray100",
+"................",
+"...        .....",
+"... XXXXXX  ....",
+"... XXXXXX X ...",
+"... XXXXXX    ..",
+"... XXXXXXXXX ..",
+"... XXXXXXXXX ..",
+"... XXXXXXXXX ..",
+"... XXXXXXXXX ..",
+"... XXXXXXXXX ..",
+"... XXXXXXXXX ..",
+"... XXXXXXXXX ..",
+"... XXXXXXXXX ..",
+"...           ..",
+"................"
+};

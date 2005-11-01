@@ -1,0 +1,18 @@
+ #!/bin/bash
+
+BISFILE=parser.y
+CFILE=parser.tab
+
+rm lex.yy.c
+flex -L lexer.l
+
+rm $CFILE.c
+rm $CFILE.h
+bison $BISFILE
+
+#rm $CFILE
+#gcc -Wall -g -c $CFILE.c -o $CFILE.o #2>&1 | grep error
+#gcc -Wall -static -g -o $CFILE $CFILE.o -L.
+
+# clean
+#rm $CFILE.o

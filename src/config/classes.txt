@@ -1,0 +1,1806 @@
+<?php
+
+class stdClass {
+};
+class swfshape {
+    /**
+     * @return object
+     * @desc   Returns a new SWFShape object 
+     */
+    function swfshape_init() ;
+
+    /**
+     * @return void
+     * @param  width int
+     * @param  r int
+     * @param  g int
+     * @param  b int
+     * @param  a int[optional]
+     * @desc   Sets the current line style for this SWFShape 
+     */
+    function swfshape_setline($width, $r, $g, $b, $a = null) ;
+
+    /**
+     * @return object
+     * @param  arg1 mixed
+     * @param  arg2 int
+     * @param  b int[optional]
+     * @param  a int[optional]
+     * @desc   Returns a fill object, for use with swfshape_setleftfill and swfshape_setrightfill. If 1 or 2 parameter(s) is (are) passed first should be object (from gradient class) and the second int (flags). Gradient fill is performed. If 3 or 4 parameters are passed : r, g, b [, a]. Solid fill is performed. 
+     */
+    function swfshape_addfill($arg1, $arg2, $b = null, $a = null) ;
+
+    /**
+     * @return void
+     * @param  arg1 int
+     * @param  g int[optional]
+     * @param  b int
+     * @param  a int[optional]
+     * @desc   Sets the right side fill style to fill in case only one parameter is passed. When 3 or 4 parameters are passed they are treated as : int r, int g, int b, int a . Solid fill is performed in this case before setting right side fill type. 
+     */
+    function swfshape_setleftfill($arg1, $g = null, $b, $a = null) ;
+
+    /**
+     * @return void
+     * @param  x float
+     * @param  y float
+     * @desc   Moves the pen to shape coordinates (x, y) 
+     */
+    function swfshape_movepento($x, $y) ;
+
+    /**
+     * @return void
+     * @param  x float
+     * @param  y float
+     * @desc   Moves the pen from its current location by vector (x, y) 
+     */
+    function swfshape_movepen($x, $y) ;
+
+    /**
+     * @return void
+     * @param  x float
+     * @param  y float
+     * @desc   Draws a line from the current pen position to shape coordinates (x, y) in the current line style 
+     */
+    function swfshape_drawlineto($x, $y) ;
+
+    /**
+     * @return void
+     * @param  dx float
+     * @param  dy float
+     * @desc   Draws a line from the current pen position (x, y) to the point (x+dx, y+dy) in the current line style 
+     */
+    function swfshape_drawline($dx, $dy) ;
+
+    /**
+     * @return void
+     * @param  ax float
+     * @param  ay float
+     * @param  bx float
+     * @param  by float
+     * @param  dx float[optional]
+     * @param  dy float
+     * @desc   Draws a curve from the current pen position (x,y) to the point (bx, by) in the current line style, using point (ax, ay) as a control point. Or draws a cubic bezier to point (dx, dy) with control points (ax, ay) and (bx, by) 
+     */
+    function swfshape_drawcurveto($ax, $ay, $bx, $by, $dx = null, $dy) ;
+
+    /**
+     * @return void
+     * @param  adx float
+     * @param  ady float
+     * @param  bdx float
+     * @param  bdy float
+     * @param  cdx float[optional]
+     * @param  cdy float
+     * @desc   Draws a curve from the current pen position (x, y) to the point (x+bdx, y+bdy) in the current line style, using point (x+adx, y+ady) as a control point or draws a cubic bezier to point (x+cdx, x+cdy) with control points (x+adx, y+ady) and (x+bdx, y+bdy) 
+     */
+    function swfshape_drawcurve($adx, $ady, $bdx, $bdy, $cdx = null, $cdy) ;
+
+    /**
+     * @return void
+     * @param  font SWFFont
+     * @param  character string
+     * @param  size int[optional]
+     * @desc   Draws the first character in the given string into the shape using the glyph definition from the given font 
+     */
+    function swfshape_drawglyph($font, $character, $size = null) ;
+
+    /**
+     * @return void
+     * @param  r float
+     * @desc   Draws a circle of radius r centered at the current location, in a counter-clockwise fashion 
+     */
+    function swfshape_drawcircle($r) ;
+
+    /**
+     * @return void
+     * @param  r float
+     * @param  startAngle float
+     * @param  endAngle float
+     * @desc   Draws an arc of radius r centered at the current location, from angle startAngle to angle endAngle measured counterclockwise from 12 o'clock 
+     */
+    function swfshape_drawarc($r, $startAngle, $endAngle) ;
+
+    /**
+     * @return void
+     * @param  bx float
+     * @param  by float
+     * @param  cx float
+     * @param  cy float
+     * @param  dx float
+     * @param  dy float
+     * @desc   Draws a cubic bezier curve using the current position and the three given points as control points 
+     */
+    function swfshape_drawcubic($bx, $by, $cx, $cy, $dx, $dy) ;
+
+};
+
+class swffill {
+    /**
+     * @return class
+     * @desc   Returns a new SWFFill object 
+     */
+    function swffill_init() ;
+
+    /**
+     * @return void
+     * @param  x float
+     * @param  y float
+     * @desc   Moves this SWFFill to shape coordinates (x,y) 
+     */
+    function swffill_moveTo($x, $y) ;
+
+    /**
+     * @return void
+     * @param  xScale float
+     * @param  yScale float[optional]
+     * @desc   Scales this SWFFill by xScale in the x direction, yScale in the y, or both to xScale if only one arg 
+     */
+    function swffill_scaleTo($xScale, $yScale = null) ;
+
+    /**
+     * @return void
+     * @param  degrees float
+     * @desc   Rotates this SWFFill the given (clockwise) degrees from its original orientation 
+     */
+    function swffill_rotateTo($degrees) ;
+
+    /**
+     * @return void
+     * @param  xSkew float
+     * @desc   Sets this SWFFill's x skew value to xSkew 
+     */
+    function swffill_skewXTo($xSkew) ;
+
+    /**
+     * @return void
+     * @param  ySkew float
+     * @desc   Sets this SWFFill's y skew value to ySkew 
+     */
+    function swffill_skewYTo($ySkew) ;
+
+};
+
+class swfgradient {
+    /**
+     * @return class
+     * @desc   Returns a new SWFGradient object 
+     */
+    function swfgradient_init() ;
+
+    /**
+     * @return void
+     * @param  ratio float
+     * @param  r int
+     * @param  g int
+     * @param  b int
+     * @param  a int[optional]
+     * @desc   Adds given entry to the gradient 
+     */
+    function swfgradient_addEntry($ratio, $r, $g, $b, $a = null) ;
+
+};
+
+class swfbitmap {
+    /**
+     * @return class
+     * @param  file mixed
+     * @param  maskfile mixed[optional]
+     * @desc   Returns a new SWFBitmap object from jpg (with optional mask) or dbl file 
+     */
+    function swfbitmap_init($file, $maskfile = null) ;
+
+    /**
+     * @return float
+     * @desc   Returns the width of this bitmap 
+     */
+    function swfbitmap_getWidth() ;
+
+    /**
+     * @return float
+     * @desc   Returns the height of this bitmap 
+     */
+    function swfbitmap_getHeight() ;
+
+};
+
+class swftext {
+    /**
+     * @return class
+     * @desc   Returns new SWFText object 
+     */
+    function swftext_init() ;
+
+    /**
+     * @return void
+     * @param  font object
+     * @desc   Sets this SWFText object's current font to given font 
+     */
+    function swftext_setFont($font) ;
+
+    /**
+     * @return void
+     * @param  height float
+     * @desc   Sets this SWFText object's current height to given height 
+     */
+    function swftext_setHeight($height) ;
+
+    /**
+     * @return void
+     * @param  spacing float
+     * @desc   Sets this SWFText object's current letterspacing to given spacing 
+     */
+    function swftext_setSpacing($spacing) ;
+
+    /**
+     * @return void
+     * @param  r int
+     * @param  g int
+     * @param  b int
+     * @param  a int[optional]
+     * @desc   Sets this SWFText object's current color to the given color 
+     */
+    function swftext_setColor($r, $g, $b, $a = null) ;
+
+    /**
+     * @return void
+     * @param  x float
+     * @param  y float
+     * @desc   Moves this SWFText object's current pen position to (x, y) in text coordinates 
+     */
+    function swftext_moveTo($x, $y) ;
+
+    /**
+     * @return void
+     * @param  text string
+     * @desc   Writes the given text into this SWFText object at the current pen position, using the current font, height, spacing, and color 
+     */
+    function swftext_addString($text) ;
+
+    /**
+     * @return float
+     * @param  str string
+     * @desc   Calculates the width of the given string in this text objects current font and size 
+     */
+    function swftext_getWidth($str) ;
+
+    /**
+     * @return float
+     * @desc   Returns the ascent of the current font at its current size, or 0 if not available 
+     */
+    function swftext_getAscent() ;
+
+    /**
+     * @return float
+     * @desc   Returns the descent of the current font at its current size, or 0 if not available 
+     */
+    function swftext_getDescent() ;
+
+    /**
+     * @return float
+     * @desc   Returns the leading of the current font at its current size, or 0 if not available 
+     */
+    function swftext_getLeading() ;
+
+};
+
+class swftextfield {
+    /**
+     * @return object
+     * @param  flags int[optional]
+     * @desc   Returns a new SWFTextField object 
+     */
+    function swftextfield_init($flags = null) ;
+
+    /**
+     * @return void
+     * @param  font object
+     * @desc   Sets the font for this textfield 
+     */
+    function swftextfield_setFont($font) ;
+
+    /**
+     * @return void
+     * @param  width float
+     * @param  height float
+     * @desc   Sets the width and height of this textfield 
+     */
+    function swftextfield_setBounds($width, $height) ;
+
+    /**
+     * @return void
+     * @param  alignment int
+     * @desc   Sets the alignment of this textfield 
+     */
+    function swftextfield_align($alignment) ;
+
+    /**
+     * @return void
+     * @param  height float
+     * @desc   Sets the font height of this textfield 
+     */
+    function swftextfield_setHeight($height) ;
+
+    /**
+     * @return void
+     * @param  margin float
+     * @desc   Sets the left margin of this textfield 
+     */
+    function swftextfield_setLeftMargin($margin) ;
+
+    /**
+     * @return void
+     * @param  margin float
+     * @desc   Sets the right margin of this textfield 
+     */
+    function swftextfield_setRightMargin($margin) ;
+
+    /**
+     * @return void
+     * @param  left float
+     * @param  right float
+     * @desc   Sets both margins of this textfield 
+     */
+    function swftextfield_setMargins($left, $right) ;
+
+    /**
+     * @return void
+     * @param  indentation float
+     * @desc   Sets the indentation of the first line of this textfield 
+     */
+    function swftextfield_setIndentation($indentation) ;
+
+    /**
+     * @return void
+     * @param  space float
+     * @desc   Sets the line spacing of this textfield 
+     */
+    function swftextfield_setLineSpacing($space) ;
+
+    /**
+     * @return void
+     * @param  r int
+     * @param  g int
+     * @param  b int
+     * @param  a int[optional]
+     * @desc   Sets the color of this textfield 
+     */
+    function swftextfield_setColor($r, $g, $b, $a = null) ;
+
+    /**
+     * @return void
+     * @param  var_name string
+     * @desc   Sets the variable name of this textfield 
+     */
+    function swftextfield_setName($var_name) ;
+
+    /**
+     * @return void
+     * @param  str string
+     * @desc   Adds the given string to this textfield 
+     */
+    function swftextfield_addString($str) ;
+
+};
+
+class swffont {
+    /**
+     * @return object
+     * @param  filename string
+     * @desc   Returns a new SWFFont object from given file 
+     */
+    function swffont_init($filename) ;
+
+    /**
+     * @return float
+     * @param  str string
+     * @desc   Calculates the width of the given string in this font at full height 
+     */
+    function swffont_getWidth($str) ;
+
+    /**
+     * @return float
+     * @desc   Returns the ascent of the font, or 0 if not available 
+     */
+    function swffont_getAscent() ;
+
+    /**
+     * @return float
+     * @desc   Returns the descent of the font, or 0 if not available 
+     */
+    function swffont_getDescent() ;
+
+    /**
+     * @return float
+     * @desc   Returns the leading of the font, or 0 if not available 
+     */
+    function swffont_getLeading() ;
+
+};
+
+class swfdisplayitem {
+    /**
+     * @return void
+     * @param  x int
+     * @param  y int
+     * @desc   Moves this SWFDisplayItem to movie coordinates (x, y) 
+     */
+    function swfdisplayitem_moveTo($x, $y) ;
+
+    /**
+     * @return void
+     * @param  dx float
+     * @param  dy float
+     * @desc   Displaces this SWFDisplayItem by (dx, dy) in movie coordinates 
+     */
+    function swfdisplayitem_move($dx, $dy) ;
+
+    /**
+     * @return void
+     * @param  xScale float
+     * @param  yScale float[optional]
+     * @desc   Scales this SWFDisplayItem by xScale in the x direction, yScale in the y, or both to xScale if only one arg 
+     */
+    function swfdisplayitem_scaleTo($xScale, $yScale = null) ;
+
+    /**
+     * @return void
+     * @param  xScale float
+     * @param  yScale float
+     * @desc   Multiplies this SWFDisplayItem's current x scale by xScale, its y scale by yScale 
+     */
+    function swfdisplayitem_scale($xScale, $yScale) ;
+
+    /**
+     * @return void
+     * @param  degrees float
+     * @desc   Rotates this SWFDisplayItem the given (clockwise) degrees from its original orientation 
+     */
+    function swfdisplayitem_rotateTo($degrees) ;
+
+    /**
+     * @return void
+     * @param  degrees float
+     * @desc   Rotates this SWFDisplayItem the given (clockwise) degrees from its current orientation 
+     */
+    function swfdisplayitem_rotate($degrees) ;
+
+    /**
+     * @return void
+     * @param  xSkew float
+     * @desc   Sets this SWFDisplayItem's x skew value to xSkew 
+     */
+    function swfdisplayitem_skewXTo($xSkew) ;
+
+    /**
+     * @return void
+     * @param  xSkew float
+     * @desc   Adds xSkew to this SWFDisplayItem's x skew value 
+     */
+    function swfdisplayitem_skewX($xSkew) ;
+
+    /**
+     * @return void
+     * @param  ySkew float
+     * @desc   Sets this SWFDisplayItem's y skew value to ySkew 
+     */
+    function swfdisplayitem_skewYTo($ySkew) ;
+
+    /**
+     * @return void
+     * @param  ySkew float
+     * @desc   Adds ySkew to this SWFDisplayItem's y skew value 
+     */
+    function swfdisplayitem_skewY($ySkew) ;
+
+    /**
+     * @return void
+     * @param  a float
+     * @param  b float
+     * @param  c float
+     * @param  d float
+     * @param  x float
+     * @param  y float
+     * @desc   Sets the item's transform matrix 
+     */
+    function swfdisplayitem_setMatrix($a, $b, $c, $d, $x, $y) ;
+
+    /**
+     * @return void
+     * @param  depth int
+     * @desc   Sets this SWFDisplayItem's z-depth to depth.  Items with higher depth values are drawn on top of those with lower values 
+     */
+    function swfdisplayitem_setDepth($depth) ;
+
+    /**
+     * @return void
+     * @param  ratio float
+     * @desc   Sets this SWFDisplayItem's ratio to ratio.  Obviously only does anything if displayitem was created from an SWFMorph 
+     */
+    function swfdisplayitem_setRatio($ratio) ;
+
+    /**
+     * @return void
+     * @param  r int
+     * @param  g int
+     * @param  b int
+     * @param  a int[optional]
+     * @desc   Sets the add color part of this SWFDisplayItem's CXform to (r, g, b [, a]), a defaults to 0 
+     */
+    function swfdisplayitem_addColor($r, $g, $b, $a = null) ;
+
+    /**
+     * @return void
+     * @param  r float
+     * @param  g float
+     * @param  b float
+     * @param  a float[optional]
+     * @desc   Sets the multiply color part of this SWFDisplayItem's CXform to (r, g, b [, a]), a defaults to 1.0 
+     */
+    function swfdisplayitem_multColor($r, $g, $b, $a = null) ;
+
+    /**
+     * @return void
+     * @param  name string
+     * @desc   Sets this SWFDisplayItem's name to name 
+     */
+    function swfdisplayitem_setName($name) ;
+
+    /**
+     * @return void
+     * @param  SWFAction object
+     * @param  flags int
+     * @desc   Adds this SWFAction to the given SWFSprite instance 
+     */
+    function swfdisplayitem_addAction($SWFAction, $flags) ;
+
+};
+
+class swfmovie {
+    /**
+     * @return object
+     * @param  version int
+     * @desc   Creates swfmovie object according to the passed version 
+     */
+    function swfmovie_init($version) ;
+
+    /**
+     * @return object
+     * @param  SWFBlock object
+     * @desc   
+     */
+    function swfmovie_add($SWFBlock) ;
+
+    /**
+     * @return int
+     * @param  compression int[optional]
+     * @desc   
+     */
+    function swfmovie_output($compression = null) ;
+
+    /**
+     * @return int
+     * @param  where mixed
+     * @param  compression int[optional]
+     * @desc   Saves the movie. 'where' can be stream and the movie will be saved there otherwise it is treated as string and written in file with that name 
+     */
+    function swfmovie_save($where, $compression = null) ;
+
+    /**
+     * @return int
+     * @param  x stream
+     * @param  compression int[optional]
+     * @desc   
+     */
+    function swfmovie_saveToFile($x, $compression = null) ;
+
+    /**
+     * @return void
+     * @param  r int
+     * @param  g int
+     * @param  b int
+     * @desc   Sets background color (r,g,b) 
+     */
+    function swfmovie_setBackground($r, $g, $b) ;
+
+    /**
+     * @return void
+     * @param  rate float
+     * @desc   Sets movie rate 
+     */
+    function swfmovie_setRate($rate) ;
+
+    /**
+     * @return void
+     * @param  x float
+     * @param  y float
+     * @desc   Sets movie dimension 
+     */
+    function swfmovie_setDimension($x, $y) ;
+
+    /**
+     * @return void
+     * @param  frames int
+     * @desc   Sets number of frames 
+     */
+    function swfmovie_setFrames($frames) ;
+
+    /**
+     * @return void
+     * @param  file mixed
+     * @desc   Sets sound stream of the SWF movie. The parameter can be stream or string. 
+     */
+    function swfmovie_streamMp3($file) ;
+
+};
+
+class swfbutton {
+    /**
+     * @return object
+     * @desc   Returns a new SWFButton object 
+     */
+    function swfbutton_init() ;
+
+    /**
+     * @return void
+     * @param  SWFCharacter object
+     * @desc   Sets the character for this button's hit test state 
+     */
+    function swfbutton_setHit($SWFCharacter) ;
+
+    /**
+     * @return void
+     * @param  SWFCharacter object
+     * @desc   Sets the character for this button's over state 
+     */
+    function swfbutton_setOver($SWFCharacter) ;
+
+    /**
+     * @return void
+     * @param  SWFCharacter object
+     * @desc   Sets the character for this button's up state 
+     */
+    function swfbutton_setUp($SWFCharacter) ;
+
+    /**
+     * @return void
+     * @param  SWFCharacter object
+     * @desc   Sets the character for this button's down state 
+     */
+    function swfbutton_setDown($SWFCharacter) ;
+
+    /**
+     * @return void
+     * @param  SWFAction object
+     * @desc   Sets the action to perform when button is pressed 
+     */
+    function swfbutton_setAction($SWFAction) ;
+
+    /**
+     * @return void
+     * @param  SWFCharacter object
+     * @param  flags int
+     * @desc   Sets the character to display for the condition described in flags 
+     */
+    function swfbutton_addShape($SWFCharacter, $flags) ;
+
+    /**
+     * @return void
+     * @param  SWFAction object
+     * @param  flags int
+     * @desc   Sets the action to perform when conditions described in flags is met 
+     */
+    function swfbutton_addAction($SWFAction, $flags) ;
+
+};
+
+class swfaction {
+    /**
+     * @return object
+     * @param  string
+     * @desc   Returns a new SWFAction object, compiling the given script 
+     */
+    function swfaction_init($string) ;
+
+};
+
+class swfmorph {
+    /**
+     * @return object
+     * @desc   Returns a new SWFMorph object 
+     */
+    function swfmorph_init() ;
+
+    /**
+     * @return object
+     * @desc   Return's this SWFMorph's start shape object 
+     */
+    function swfmorph_getShape1() ;
+
+    /**
+     * @return object
+     * @desc   Return's this SWFMorph's start shape object 
+     */
+    function swfmorph_getShape2() ;
+
+};
+
+class swfsprite {
+    /**
+     * @return class
+     * @desc   Returns a new SWFSprite object 
+     */
+    function swfsprite_init() ;
+
+    /**
+     * @return object
+     * @param  SWFCharacter object
+     * @desc   Adds the character to the sprite, returns a displayitem object 
+     */
+    function swfsprite_add($SWFCharacter) ;
+
+    /**
+     * @return void
+     * @param  SWFDisplayItem object
+     * @desc   Remove the named character from the sprite's display list 
+     */
+    function swfsprite_remove($SWFDisplayItem) ;
+
+    /**
+     * @return void
+     * @desc   Moves the sprite to the next frame 
+     */
+    function swfsprite_nextFrame() ;
+
+    /**
+     * @return void
+     * @param  label string
+     * @desc   Labels frame 
+     */
+    function swfsprite_labelFrame($label) ;
+
+    /**
+     * @return void
+     * @param  frames int
+     * @desc   Sets the number of frames in this SWFSprite 
+     */
+    function swfsprite_setFrames($frames) ;
+
+};
+
+class OCI_Lob {
+    /**
+     * @return string
+     * @param  lob object
+     * @desc   Loads a large object 
+     */
+    function ociloadlob($lob) ;
+
+    /**
+     * @return bool
+     * @param  lob object
+     * @param  filename string[optional]
+     * @param  start int[optional]
+     * @param  length int[optional]
+     * @desc   Writes a large object into a file 
+     */
+    function ociwritelobtofile($lob, $filename = null, $start = null, $length = null) ;
+
+    /**
+     * @return bool
+     * @param  stmt int
+     * @param  loc int
+     * @param  var string
+     * @desc   Return the row count of an OCI statement 
+     */
+    function ociwritetemporarylob($stmt, $loc, $var) ;
+
+    /**
+     * @return bool
+     * @param  lob object
+     * @desc   Closes lob descriptor 
+     */
+    function ocicloselob($lob) ;
+
+    /**
+     * @return bool
+     * @param  lob object
+     * @desc   Saves a large object 
+     */
+    function ocisavelob($lob) ;
+
+    /**
+     * @return bool
+     * @param  lob object
+     * @desc   Saves a large object file 
+     */
+    function ocisavelobfile($lob) ;
+
+    /**
+     * @return bool
+     * @param  lob object
+     * @desc   Deletes large object description 
+     */
+    function ocifreedesc($lob) ;
+
+};
+
+class OCI_Collection {
+    /**
+     * @return bool
+     * @param  collection object
+     * @param  value
+     * @desc   Append an object to the collection 
+     */
+    function ocicollappend($collection, $value) ;
+
+    /**
+     * @return string
+     * @param  collection object
+     * @param  ndx
+     * @desc   Retrieve the value at collection index ndx 
+     */
+    function ocicollgetelem($collection, $ndx) ;
+
+    /**
+     * @return bool
+     * @param  collection object
+     * @param  ndx
+     * @param  val
+     * @desc   Assign element val to collection at index ndx 
+     */
+    function ocicollassignelem($collection, $ndx, $val) ;
+
+    /**
+     * @return bool
+     * @param  collection object
+     * @param  object
+     * @desc   Assign a collection from another existing collection 
+     */
+    function ocicollassign($collection, $object) ;
+
+    /**
+     * @return int
+     * @param  collection object
+     * @desc   Return the size of a collection 
+     */
+    function ocicollsize($collection) ;
+
+    /**
+     * @return int
+     * @param  collection object
+     * @desc   Return the max value of a collection.  For a varray this is the maximum length of the array 
+     */
+    function ocicollmax($collection) ;
+
+    /**
+     * @return bool
+     * @param  collection object
+     * @param  num
+     * @desc   Trim num elements from the end of a collection 
+     */
+    function ocicolltrim($collection, $num) ;
+
+    /**
+     * @return bool
+     * @param  lob object
+     * @desc   Deletes collection object
+     */
+    function ocifreecollection($lob) ;
+
+};
+
+class Directory {
+    /**
+     * @return void
+     * @param  dir_handle resource[optional]
+     * @desc   Close directory connection identified by the dir_handle 
+     */
+    function closedir($dir_handle = null) ;
+
+    /**
+     * @return void
+     * @param  dir_handle resource[optional]
+     * @desc   Rewind dir_handle back to the start 
+     */
+    function rewinddir($dir_handle = null) ;
+
+};
+
+class domnode {
+    /**
+     * @return object
+     * @param  name string
+     * @desc   Creates node 
+     */
+    function domxml_node($name) ;
+
+    /**
+     * @return object
+     * @desc   Returns name of node 
+     */
+    function domxml_node_name() ;
+
+    /**
+     * @return int
+     * @desc   Returns the type of the node 
+     */
+    function domxml_node_type() ;
+
+    /**
+     * @return object
+     * @desc   Returns name of value 
+     */
+    function domxml_node_value() ;
+
+    /**
+     * @return object
+     * @desc   Returns first child from list of children 
+     */
+    function domxml_node_first_child() ;
+
+    /**
+     * @return object
+     * @desc   Returns last child from list of children 
+     */
+    function domxml_node_last_child() ;
+
+    /**
+     * @return array
+     * @desc   Returns list of children nodes 
+     */
+    function domxml_node_children() ;
+
+    /**
+     * @return array
+     * @desc   Returns list of children nodes 
+     */
+    function domxml_node_children() ;
+
+    /**
+     * @return object
+     * @desc   Returns previous child from list of children 
+     */
+    function domxml_node_previous_sibling() ;
+
+    /**
+     * @return object
+     * @desc   Returns next child from list of children 
+     */
+    function domxml_node_next_sibling() ;
+
+    /**
+     * @return object
+     * @desc   Returns true if node has children 
+     */
+    function domxml_node_has_child_nodes() ;
+
+    /**
+     * @return object
+     * @desc   Returns parent of node 
+     */
+    function domxml_node_parent() ;
+
+    /**
+     * @return object
+     * @desc   Returns parent of node 
+     */
+    function domxml_node_parent() ;
+
+    /**
+     * @return object
+     * @param  newnode object
+     * @param  refnode object
+     * @desc   Adds node in list of nodes before given node 
+     */
+    function domxml_node_insert_before($newnode, $refnode) ;
+
+    /**
+     * @return object
+     * @param  domnode object
+     * @desc   Adds node to list of children 
+     */
+    function domxml_node_append_child($domnode) ;
+
+    /**
+     * @return object
+     * @param  domnode object
+     * @desc   Removes node from list of children 
+     */
+    function domxml_node_remove_child($domnode) ;
+
+    /**
+     * @return object
+     * @param  newnode object
+     * @param  oldnode object
+     * @desc   Replaces node in list of children 
+     */
+    function domxml_node_replace_child($newnode, $oldnode) ;
+
+    /**
+     * @return object
+     * @desc   Returns document this node belongs to 
+     */
+    function domxml_node_owner_document() ;
+
+    /**
+     * @return object
+     * @param  name string
+     * @param  content string
+     * @desc   Adds child node to parent node 
+     */
+    function domxml_node_new_child($name, $content) ;
+
+    /**
+     * @return array
+     * @desc   Returns list of attributes of node 
+     */
+    function domxml_node_attributes() ;
+
+    /**
+     * @return object
+     * @desc   Returns true if node has attributes 
+     */
+    function domxml_node_has_attributes() ;
+
+    /**
+     * @return string
+     * @desc   Returns namespace prefix of node 
+     */
+    function domxml_node_prefix() ;
+
+    /**
+     * @return string
+     * @desc   Returns namespace uri of node 
+     */
+    function domxml_node_namespace_uri() ;
+
+    /**
+     * @return object
+     * @param  deep bool[optional]
+     * @desc   Clones a node 
+     */
+    function domxml_clone_node($deep = null) ;
+
+    /**
+     * @return bool
+     * @param  uri string
+     * @param  prefix string
+     * @desc   Adds a namespace declaration to a node 
+     */
+    function domxml_node_add_namespace($uri, $prefix) ;
+
+    /**
+     * @return void
+     * @param  uri string
+     * @param  prefix string[optional]
+     * @desc   Sets the namespace of a node 
+     */
+    function domxml_node_set_namespace($uri, $prefix = null) ;
+
+    /**
+     * @return object
+     * @param  domnode object
+     * @desc   Adds node to list of children 
+     */
+    function domxml_node_append_child($domnode) ;
+
+    /**
+     * @return object
+     * @param  domnode object
+     * @desc   Adds node to list of siblings 
+     */
+    function domxml_node_append_sibling($domnode) ;
+
+    /**
+     * @return object
+     * @param  name string
+     * @desc   Creates node 
+     */
+    function domxml_node($name) ;
+
+    /**
+     * @return void
+     * @param  node object[optional]
+     * @desc   Deletes the node from tree, but not from memory
+     */
+    function domxml_node_unlink_node($node = null) ;
+
+    /**
+     * @return void
+     * @param  node object[optional]
+     * @desc   Deletes the node from tree, but not from memory
+     */
+    function domxml_node_unlink_node($node = null) ;
+
+    /**
+     * @return object
+     * @param  domnode object
+     * @desc   Replaces one node with another node 
+     */
+    function domxml_node_replace_node($domnode) ;
+
+    /**
+     * @return bool
+     * @param  content string
+     * @desc   Sets content of a node 
+     */
+    function domxml_node_set_content($content) ;
+
+    /**
+     * @return string
+     * @desc   
+     */
+    function domxml_node_get_content() ;
+
+    /**
+     * @return bool
+     * @param  content string
+     * @desc   Add string tocontent of a node 
+     */
+    function domxml_node_text_concat($content) ;
+
+    /**
+     * @return bool
+     * @param  name string
+     * @desc   Sets name of a node 
+     */
+    function domxml_node_set_name($name) ;
+
+    /**
+     * @return bool
+     * @desc   Returns true if node is blank 
+     */
+    function domxml_is_blank_node() ;
+
+    /**
+     * @return string
+     * @param  doc_handle object
+     * @param  node_handle object
+     * @param  format int[optional]
+     * @param  level int[optional]
+     * @desc   Dumps node into string 
+     */
+    function domxml_dump_node($doc_handle, $node_handle, $format = null, $level = null) ;
+
+};
+
+class domdocument {
+    /**
+     * @return object
+     * @param  xmldoc string
+     * @param  mode int
+     * @param  error array
+     * @desc   Creates DOM object of XML document 
+     */
+    function xmldoc($xmldoc, $mode, $error) ;
+
+    /**
+     * @return object
+     * @desc   Returns DomDocumentType 
+     */
+    function domxml_doc_doctype() ;
+
+    /**
+     * @return object
+     * @desc   Returns DomeDOMImplementation 
+     */
+    function domxml_doc_implementation() ;
+
+    /**
+     * @return object
+     * @param  domnode int
+     * @desc   Returns root node of document 
+     */
+    function domxml_doc_document_element($domnode) ;
+
+    /**
+     * @return object
+     * @param  name string
+     * @desc   Creates new element node 
+     */
+    function domxml_doc_create_element($name) ;
+
+    /**
+     * @return object
+     * @param  uri string
+     * @param  name string
+     * @param  prefix string[optional]
+     * @desc   Creates new element node with a namespace 
+     */
+    function domxml_doc_create_element_ns($uri, $name, $prefix = null) ;
+
+    /**
+     * @return object
+     * @param  content string
+     * @desc   Creates new text node 
+     */
+    function domxml_doc_create_text_node($content) ;
+
+    /**
+     * @return object
+     * @param  content string
+     * @desc   Creates new comment node 
+     */
+    function domxml_doc_create_comment($content) ;
+
+    /**
+     * @return object
+     * @param  name string
+     * @param  value string
+     * @desc   Creates new attribute node 
+     */
+    function domxml_doc_create_attribute($name, $value) ;
+
+    /**
+     * @return object
+     * @param  content string
+     * @desc   Creates new cdata node 
+     */
+    function domxml_doc_create_cdata_section($content) ;
+
+    /**
+     * @return object
+     * @param  name string
+     * @desc   Creates new cdata node 
+     */
+    function domxml_doc_create_entity_reference($name) ;
+
+    /**
+     * @return object
+     * @param  name string
+     * @desc   Creates new processing_instruction node 
+     */
+    function domxml_doc_create_processing_instruction($name) ;
+
+    /**
+     * @return string
+     * @param  tagname string
+     * @param  xpathctx_handle object[optional]
+     * @desc   Returns array with nodes with given tagname in document or empty array, if not found
+     */
+    function domxml_doc_get_elements_by_tagname($tagname, $xpathctx_handle = null) ;
+
+    /**
+     * @return string
+     * @param  id string
+     * @desc   Returns element for given id or false if not found 
+     */
+    function domxml_doc_get_element_by_id($id) ;
+
+    /**
+     * @return bool
+     * @desc   Frees xmldoc and removed objects from hash 
+     */
+    function domxml_doc_free_doc() ;
+
+    /**
+     * @return array
+     * @desc   Returns list of children nodes 
+     */
+    function domxml_node_children() ;
+
+    /**
+     * @return object
+     * @param  domnode int
+     * @desc   Returns root node of document 
+     */
+    function domxml_doc_document_element($domnode) ;
+
+    /**
+     * @return object
+     * @param  domnode int
+     * @desc   Returns root node of document 
+     */
+    function domxml_doc_document_element($domnode) ;
+
+    /**
+     * @return object
+     * @param  node object
+     * @param  recursive bool
+     * @desc   Creates new element node 
+     */
+    function domxml_doc_imported_node($node, $recursive) ;
+
+    /**
+     * @return string
+     * @param  doc_handle object
+     * @desc   Returns array of ids 
+     */
+    function domxml_doc_ids($doc_handle) ;
+
+    /**
+     * @return string
+     * @param  doc_handle object
+     * @param  format int[optional]
+     * @param  encoding[optional]
+     * @desc   Dumps document into string and optionally formats it 
+     */
+    function domxml_dump_mem($doc_handle, $format = null, $encoding = null) ;
+
+    /**
+     * @return string
+     * @param  doc_handle object
+     * @param  format int[optional]
+     * @param  encoding[optional]
+     * @desc   Dumps document into string and optionally formats it 
+     */
+    function domxml_dump_mem($doc_handle, $format = null, $encoding = null) ;
+
+    /**
+     * @return int
+     * @param  filename string
+     * @param  compressmode int[optional]
+     * @param  format int[optional]
+     * @desc   Dumps document into file and uses compression if specified. Returns false on error, otherwise the length of the xml-document (uncompressed) 
+     */
+    function domxml_dump_mem_file($filename, $compressmode = null, $format = null) ;
+
+    /**
+     * @return int
+     * @param  filename string
+     * @param  compressmode int[optional]
+     * @param  format int[optional]
+     * @desc   Dumps document into file and uses compression if specified. Returns false on error, otherwise the length of the xml-document (uncompressed) 
+     */
+    function domxml_dump_mem_file($filename, $compressmode = null, $format = null) ;
+
+    /**
+     * @return string
+     * @param  doc_handle int[optional]
+     * @desc   Dumps document into string as HTML 
+     */
+    function domxml_html_dump_mem($doc_handle = null) ;
+
+    /**
+     * @return bool
+     * @desc   Initializing XPath environment 
+     */
+    function xpath_init() ;
+
+    /**
+     * @return object
+     * @param  doc_handle int[optional]
+     * @desc   Creates new XPath context 
+     */
+    function xpath_new_context($doc_handle = null) ;
+
+    /**
+     * @return object
+     * @param  doc_handle int[optional]
+     * @desc   Creates new XPath context 
+     */
+    function xptr_new_context($doc_handle = null) ;
+
+    /**
+     * @return bool
+     * @param  &error array
+     * @desc   Validates a DomDocument according to his DTD
+     */
+    function domxml_doc_validate(&$error) ;
+
+    /**
+     * @return int
+     * @desc   Substitutues xincludes in a DomDocument 
+     */
+    function domxml_doc_xinclude() ;
+
+};
+
+class domparser {
+    /**
+     * @return bool
+     * @param  chunk string
+     * @desc   adds xml-chunk to parser 
+     */
+    function domxml_parser_add_chunk($chunk) ;
+
+    /**
+     * @return object
+     * @param  chunk string[optional]
+     * @desc   Ends parsing and returns DomDocument
+     */
+    function domxml_parser_end($chunk = null) ;
+
+    /**
+     * @return bool
+     * @param  mode bool
+     * @desc   Determines how to handle blanks 
+     */
+    function domxml_parser_set_keep_blanks($mode) ;
+
+    /**
+     * @return bool
+     * @param  tagname string
+     * @param  attributes array
+     * @desc   Starts an element and adds attributes
+     */
+    function domxml_parser_start_element($tagname, $attributes) ;
+
+    /**
+     * @return bool
+     * @param  tagname string
+     * @desc   Ends an element 
+     */
+    function domxml_parser_end_element($tagname) ;
+
+    /**
+     * @return bool
+     * @param  characters string
+     * @desc   Adds characters 
+     */
+    function domxml_parser_characters($characters) ;
+
+    /**
+     * @return bool
+     * @param  reference string
+     * @desc   Adds entity reference 
+     */
+    function domxml_parser_entity_reference($reference) ;
+
+    /**
+     * @return bool
+     * @param  target string
+     * @param  data string
+     * @desc   Adds processing instruction 
+     */
+    function domxml_parser_processing_instruction($target, $data) ;
+
+    /**
+     * @return bool
+     * @param  chunk string
+     * @desc   adds a cdata block 
+     */
+    function domxml_parser_cdata_section($chunk) ;
+
+    /**
+     * @return bool
+     * @param  comment string
+     * @desc   Adds a comment 
+     */
+    function domxml_parser_comment($comment) ;
+
+    /**
+     * @return bool
+     * @param  href string
+     * @param  prefix string
+     * @desc   Adds namespace declaration 
+     */
+    function domxml_parser_namespace_decl($href, $prefix) ;
+
+    /**
+     * @return bool
+     * @desc   starts a document
+     */
+    function domxml_parser_start_document() ;
+
+    /**
+     * @return bool
+     * @desc   ends a document 
+     */
+    function domxml_parser_end_document() ;
+
+    /**
+     * @return object
+     * @desc   Returns DomDocument from parser 
+     */
+    function domxml_parser_get_document() ;
+
+};
+
+class domdocumenttype {
+    /**
+     * @return array
+     * @desc   Returns name of DocumentType 
+     */
+    function domxml_doctype_name() ;
+
+    /**
+     * @return array
+     * @desc   Returns list of entities 
+     */
+    function domxml_doctype_entities() ;
+
+    /**
+     * @return array
+     * @desc   Returns list of notations 
+     */
+    function domxml_doctype_notations() ;
+
+    /**
+     * @return array
+     * @desc   Returns system id of DocumentType 
+     */
+    function domxml_doctype_system_id() ;
+
+    /**
+     * @return array
+     * @desc   Returns public id of DocumentType 
+     */
+    function domxml_doctype_public_id() ;
+
+};
+
+class domelement {
+    /**
+     * @return object
+     * @param  name string
+     * @desc   Creates new element node 
+     */
+    function domxml_doc_create_element($name) ;
+
+    /**
+     * @return string
+     * @desc   Returns tag name of element node 
+     */
+    function domxml_elem_tagname() ;
+
+    /**
+     * @return string
+     * @desc   Returns tag name of element node 
+     */
+    function domxml_elem_tagname() ;
+
+    /**
+     * @return string
+     * @param  attrname string
+     * @desc   Returns value of given attribute 
+     */
+    function domxml_elem_get_attribute($attrname) ;
+
+    /**
+     * @return bool
+     * @param  attrname string
+     * @param  value string
+     * @desc   Sets value of given attribute 
+     */
+    function domxml_elem_set_attribute($attrname, $value) ;
+
+    /**
+     * @return string
+     * @param  attrname string
+     * @desc   Removes given attribute 
+     */
+    function domxml_elem_remove_attribute($attrname) ;
+
+    /**
+     * @return string
+     * @param  attrname string
+     * @desc   Returns value of given attribute 
+     */
+    function domxml_elem_get_attribute_node($attrname) ;
+
+    /**
+     * @return bool
+     * @param  attr object
+     * @desc   Sets value of given attribute 
+     */
+    function domxml_elem_set_attribute_node($attr) ;
+
+    /**
+     * @return string
+     * @param  tagname string
+     * @desc   Returns array with nodes with given tagname in element or empty array, if not found 
+     */
+    function domxml_elem_get_elements_by_tagname($tagname) ;
+
+    /**
+     * @return string
+     * @param  attrname string
+     * @desc   Checks for existenz given attribute 
+     */
+    function domxml_elem_has_attribute($attrname) ;
+
+};
+
+class domattribute {
+    /**
+     * @return object
+     * @param  name string
+     * @param  value string
+     * @desc   Creates new attribute node 
+     */
+    function domxml_doc_create_attribute($name, $value) ;
+
+    /**
+     * @return array
+     * @desc   
+     */
+    function domxml_attr_name() ;
+
+    /**
+     * @return array
+     * @desc   Returns list of attribute names 
+     */
+    function domxml_attr_value() ;
+
+    /**
+     * @return array
+     * @desc   Returns list of attribute names 
+     */
+    function domxml_attr_specified() ;
+
+    /**
+     * @return array
+     * @desc   
+     */
+    function domxml_attr_name() ;
+
+    /**
+     * @return array
+     * @desc   Returns list of attribute names 
+     */
+    function domxml_attr_value() ;
+
+    /**
+     * @return array
+     * @desc   Returns list of attribute names 
+     */
+    function domxml_attr_specified() ;
+
+};
+
+class domcdata {
+    /**
+     * @return object
+     * @param  content string
+     * @desc   Creates new cdata node 
+     */
+    function domxml_doc_create_cdata_section($content) ;
+
+    /**
+     * @return array
+     * @desc   Returns list of attribute names 
+     */
+    function domxml_cdata_length() ;
+
+};
+
+class domtext {
+    /**
+     * @return object
+     * @param  content string
+     * @desc   Creates new text node 
+     */
+    function domxml_doc_create_text_node($content) ;
+
+};
+
+class domcomment {
+    /**
+     * @return object
+     * @param  content string
+     * @desc   Creates new comment node 
+     */
+    function domxml_doc_create_comment($content) ;
+
+};
+
+class domprocessinginstruction {
+    /**
+     * @return object
+     * @param  name string
+     * @desc   Creates new processing_instruction node 
+     */
+    function domxml_doc_create_processing_instruction($name) ;
+
+    /**
+     * @return array
+     * @desc   Returns target of pi 
+     */
+    function domxml_pi_target() ;
+
+    /**
+     * @return array
+     * @desc   Returns data of pi 
+     */
+    function domxml_pi_data() ;
+
+};
+
+class domnotation {
+    /**
+     * @return string
+     * @desc   Returns public id of notation node 
+     */
+    function domxml_notation_public_id() ;
+
+    /**
+     * @return string
+     * @desc   Returns system ID of notation node 
+     */
+    function domxml_notation_system_id() ;
+
+};
+
+class domentityreference {
+    /**
+     * @return object
+     * @param  name string
+     * @desc   Creates new cdata node 
+     */
+    function domxml_doc_create_entity_reference($name) ;
+
+};
+
+class XPathContext {
+    /**
+     * @return object
+     * @param  xpathctx_handle object[optional]
+     * @param  str string
+     * @desc   Evaluates the XPath Location Path in the given string 
+     */
+    function xpath_eval($xpathctx_handle = null, $str) ;
+
+    /**
+     * @return object
+     * @param  xpathctx_handle object[optional]
+     * @param  str string
+     * @desc   Evaluates the XPath expression in the given string 
+     */
+    function xpath_eval_expression($xpathctx_handle = null, $str) ;
+
+    /**
+     * @return bool
+     * @param  xpathctx_handle object[optional]
+     * @param  namespace_prefix string
+     * @param  namespace_uri string
+     * @desc   Registeres the given namespace in the passed XPath context 
+     */
+    function xpath_register_ns($xpathctx_handle = null, $namespace_prefix, $namespace_uri) ;
+
+};
+
+class XsltStylesheet {
+    /**
+     * @return object
+     * @param  xslstylesheet object
+     * @param  xmldoc object
+     * @param  xslt_parameters array[optional]
+     * @param  xpath_parameters bool[optional]
+     * @param  profileFilename string[optional]
+     * @desc   Perform an XSLT transformation 
+     */
+    function domxml_xslt_process($xslstylesheet, $xmldoc, $xslt_parameters = null, $xpath_parameters = null, $profileFilename = null) ;
+
+    /**
+     * @return string
+     * @param  xslstylesheet object
+     * @param  xmldoc object
+     * @desc   output XSLT result to memory 
+     */
+    function domxml_xslt_result_dump_mem($xslstylesheet, $xmldoc) ;
+
+    /**
+     * @return int
+     * @param  xslstylesheet object
+     * @param  xmldoc object
+     * @param  filename string
+     * @param  compression int
+     * @desc   output XSLT result to File 
+     */
+    function domxml_xslt_result_dump_file($xslstylesheet, $xmldoc, $filename, $compression) ;
+
+};
+
+?>

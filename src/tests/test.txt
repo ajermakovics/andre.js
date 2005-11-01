@@ -1,0 +1,111 @@
+<html>
+function non_php_stuff()
+{
+}
+<?
+
+include("asd\".$asfd-txt");
+require('asd\'.asfd-txt');
+
+$a = 1;
+$a = "2";
+$a = (1) - 2;
+$b = ((1)+(1))+(fn())
+$a = (asd)+fn2(fn3());
+$a = "1" + (2*(asd()-2) - 3);
+$a[] = 3;
+$a["asd"] = 3;
+$a["asd"+3] = 3;
+$_var_i_able1 = 4;
+
+$a = 2;
+function asdg(){}
+
+?>
+<br>
+function non_php_stuff2()
+{ }
+<h1>
+<?
+
+if ($asd) : $a = 2;
+
+list($a,$b) = fn1();
+
+for($a=1;$b<4;$c++)
+{
+	$a = 1;
+	mysql_query("drop db bank", $link);
+}
+/*
+asd
+aaa
+
+*/
+class foo
+{
+ var $cls_var;
+ var $cls_var2 asd;
+ var $cls_var3[2] = 1+2
+
+ function foo($c = "asd", $b = 4)
+ {
+ 	$a = 1;
+	$b = 3;
+ }
+
+ function cls_method()
+ {
+ 	$a[1] = 4;
+	$a["asd"] = $asd;
+  $a["asd"+2] = "1"+2-asd()*2;
+ }
+}
+
+class bar extends foo
+{
+ var $foobar;
+}
+
+// comments
+//s sdfsdf 
+// asfdfsf
+function global_fn()
+{
+ 	$a = 1;
+	$c = 3;
+
+	if($a==5 & $c = 2)
+	{
+		echo "here";
+	}
+	for('ever';$and;"ever")
+	{
+		amen();
+	}
+}
+
+echo "asd";
+
+$bar = new foo;
+$bar2 = new bar();
+$bar_3 = new foo($a, "asd", 23);
+
+if(true)
+{
+ false;
+ true = false;
+} else
+{
+ $a = not true;
+ echo "lines";
+}
+
+exit;
+
+?>
+function asd()
+{
+ asd
+}
+</html>
